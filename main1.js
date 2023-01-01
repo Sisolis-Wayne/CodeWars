@@ -121,4 +121,6 @@ console.log(isPrime(4999))
 console.log(isPrime(-4999))
 console.log(isPrime(-41))
 
-console.log(Math.sqrt(5))
+console.log(Math.sqrt(53))
+
+console.log(isPrime())
