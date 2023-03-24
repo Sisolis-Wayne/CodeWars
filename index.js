@@ -101,6 +101,213 @@ const countSheeps = (arrayOfSheep) => {
 
 console.log(countSheeps(sheepPresent))
 
+// reverse each word in a string
+const reverseWords = str => {
+    return str.split(' ').map((item) => item.split('').reverse().join('')).join(' ')
+}
+
+console.log(reverseWords('This is an example!'))
+console.log(reverseWords('double spaces'))
+
+
+
+// Even or Odd
+const evenOrOdd = (number) => {
+    return number % 2 === 0 ? 'Even' : 'Odd'
+}
+
+console.log(evenOrOdd(2))
+
+
+// Count by X
+const countBy = (x, n) => {
+    let z = [];
+
+    for (let m = 1; m <= n; m++) {
+        z.push(x * m)
+    }
+
+    return z;
+}
+
+
+
+console.log(countBy(1,10))
+console.log(countBy(2,5))
+
+
+
+// Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.
+
+const lovefunc = (flower1, flower2) => {
+    if ((flower1 % 2 === 0 && flower2 % 2 !== 0) || flower1 % 2 !== 0 && flower2 % 2 === 0) return true
+    else return false
+}
+
+console.log(lovefunc(1,4))
+console.log(lovefunc(2,2))
+console.log(lovefunc(0,1))
+console.log(lovefunc(0,0))
+
+
+
+// Given a mixed array of number and string representations of integers, add up the non-string integers and subtract the total of the string integers. Return as a number.
+
+const divCon = (x) => {
+    let numCount = 0;
+    let stringNumCount = 0;
+
+    for (const select of x) {
+        typeof(select) === 'number' ? numCount += select : stringNumCount += +select
+    }
+
+    return numCount - stringNumCount
+
+    // return x.reduce((acc, cur) => typeof cur === 'number' ? acc + cur : acc - Number(cur), 0)
+}
+
+console.log(divCon([9, 3, '7', '3']) )
+console.log(divCon(['5', '0', 9, 3, 2, 1, '9', 6, 7]))
+console.log(divCon(['3', 6, 6, 0, '5', 8, 5, '6', 2, '0']))
+
+
+console.log(Math.round(2.467, 1))
+console.log(Math.round(-20.5))
+console.log(2.456.toFixed(5))
+
+
+
+
+// sum a series of terms and convert to string
+const SeriesSum = (n) => {
+    let count = 0;
+    for (let m = 1; m <= n; m++) {
+        count += (1 / (3 * m - 2))
+    }
+    return count.toFixed(2).toString()
+}
+
+
+console.log(SeriesSum(0))
+console.log(SeriesSum(1))
+console.log(SeriesSum(2))
+console.log(SeriesSum(3))
+console.log(SeriesSum(4))
+
+
+
+// Return Negative
+// In this simple assignment you are given a number and have to make it negative. But maybe the number is already negative?
+
+const makeNegative = num => {
+    if (num > 0) return -num
+    if (num < 0 ||num === 0) return num
+}
+console.log(makeNegative(1))   // return -1
+console.log(makeNegative(-5))   // return -5
+console.log(makeNegative(0))    // return 0
+console.log(makeNegative(0.12))// return -0.12
+
+
+
+/*
+
+----------------------//\\
+---------------------// ¤ \\
+---------------------\\ ¤ //
+---------------------- \\//
+-------------------- (___)
+---------------------(___)
+---------------------(___)
+---------------------(___)_________
+--------\_____/\__/----\__/\_____/
+------------\ _°_[------------]_ _° /
+----------------\_°_¤ ---- ¤_°_/
+--------------------\ ° /
+---------------------|\_°_/|
+---------------------[|\_/|]
+---------------------[|[¤]|]
+---------------------[|;¤;|]
+---------------------[;;¤;;]
+--------------------;;;;¤]|]\
+-------------------;;;;;¤]|]-\
+------------------;;;;;[¤]|]--\
+-----------------;;;;;|[¤]|]---\
+----------------;;;;;[|[¤]|]|---|
+---------------;;;;;[|[¤]|]|---|
+----------------;;;;[|[¤]|/---/
+-----------------;;;[|[¤]/---/
+------------------;;[|[¤/---/
+-------------------;[|[/---/
+--------------------[|/---/
+---------------------/---/
+--------------------/---/|]
+-------------------/---/]|];
+------------------/---/¤]|];;
+-----------------|---|[¤]|];;;
+-----------------|---|[¤]|];;;
+------------------\--|[¤]|];;
+-------------------\-|[¤]|];
+---------------------\|[¤]|]
+----------------------\\¤//
+-----------------------\|/
+------------------------V
+
+*/
+
+
+
+
+// Decimal Time Conversion
+const toIndustrial = (time) => {
+    
+}
+
+const toNormal = (time) => {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
