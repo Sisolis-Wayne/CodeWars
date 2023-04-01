@@ -259,36 +259,81 @@ console.log(makeNegative(0.12))// return -0.12
 
 
 // Decimal Time Conversion
-const toIndustrial = (time) => {
-    
+// const toIndustrial = (time) => {
+
+// }
+
+// const toNormal = (time) => {
+
+// }
+// not done yet
+
+/////////////////////
+
+/*
+Create a function that will trim a string (the first argument given) if it is longer than the requested maximum string length (the second argument given). The result should also end with "..."
+
+These dots at the end also add to the string length.
+
+For example, trim("Creating kata is fun", 14) should return "Creating ka..."
+
+If the string is smaller or equal than the maximum string length, then simply return the string with no trimming or dots required.
+
+e.g. trim("Code Wars is pretty rad", 50) should return "Code Wars is pretty rad"
+
+If the requested string length is smaller than or equal to 3 characters, then the length of the dots is not added to the string length.
+
+e.g. trim("He", 1) should return "H...", because 1 <= 3
+
+Requested max
+*/
+
+
+const trim = (str, size) => {
+    return str.length <= size ? str : size <= 3 ? str.substring(0, size) + '...' : str.substring(0, size - 3) + '...' 
+
 }
 
-const toNormal = (time) => {
+console.log(trim("Creating kata is fun", 14))
+console.log(trim("Code Wars is pretty rad", 50))
+console.log(trim("He", 1))
+console.log(trim("yVJwS WlMHF", 3))
 
+
+// return 'Creating ka...'
+
+
+// const newStr = 'i am me and you are you'
+// console.log(newStr.substring(0, 4) + ' we are')
+
+
+/////////////////////////
+
+const smash = words => words.join(' ')
+// ['hello', 'world', 'this', 'is', 'great']  => 'hello world this is great'
+console.log(smash(['hello', 'world', 'this', 'is', 'great']))
+
+////////////////
+const minMax = (arr) => {
+    let ans = arr[0]
+    for (let j = 1; j < arr.length; j++) {
+        if (arr[j] > ans) {
+            ans = arr[j]
+        }
+    }
+    return ans
 }
 
+// console.log(Math.min(1, -1))
+let meArr = [1, 2, 4, 5]
+
+console.log(minMax(meArr))
+
+// let meArr2 = []
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// console.log(meArr2)
 
 
 
