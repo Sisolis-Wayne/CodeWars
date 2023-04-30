@@ -133,7 +133,7 @@ const countBy = (x, n) => {
 
 
 console.log(countBy(1,10))
-console.log(countBy(2,5))
+console.log(countBy(2,20))
 
 
 
@@ -257,7 +257,7 @@ console.log(makeNegative(0.12))// return -0.12
 
 
 
-
+// not done yet
 // Decimal Time Conversion
 // const toIndustrial = (time) => {
 
@@ -335,26 +335,97 @@ console.log(minMax(meArr))
 
 // console.log(meArr2)
 
+////////////////////////////////
+
+/*
+You probably know the "like" system from Facebook and other pages. People can "like" blog posts, pictures or other items. We want to create the text that should be displayed next to such an item.
+
+Implement the function which takes an array containing the names of people that like an item. It must return the display text as shown in the examples:
+
+[]                                -->  "no one likes this"
+["Peter"]                         -->  "Peter likes this"
+["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
+*/
+
+const like = names => {
+    let str = ''
+    // return names[0]
+    if (names.length === 1) str += `${names[0]} likes this`
+    if (names.length === 0) str += `no one likes this`
+    if (names.length === 2) str += `${names[0]} and ${names[1]} like this`
+    if (names.length === 3) str += `${names[0]}, ${names[1]} and ${names[2]} like this`
+    if (names.length > 3) str += `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
+    return str
+}
+
+console.log(like([]))
+console.log(like(["Peter"]))
+console.log(["Peter"][0])
+console.log(like(["Jacob", "Alex"]))
+console.log(like(["Max", "John", "Mark"]))
+console.log(like(["Alex", "Jacob", "Mark", "Max"]))
+// console.log(like(["Alex", "Jacob", "Mark", "Max"]))
+console.log(like(["Alex", "Jacob", "Mark", "Max", "me"]))
+
+
+const newNames = ["Alex", "Jacob", "Mark", "Max"]
+console.log(newNames.slice(0, 2))
+console.log(newNames.slice(-2))
+console.log(newNames.slice(-2)[0])
+console.log(newNames.slice(1, -1))
 
 
 
+///////////////////////
+/*
+The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
 
+Examples
+"din"      =>  "((("
+"recede"   =>  "()()()"
+"Success"  =>  ")())())"
 
+*/
 
+const duplicateEncode = word => {
+    let arr = []
+    for (let m = 0; m < word.length; m++) {
+        // console.log(word[m])
 
+        let re = new RegExp(`${word[m]}`, 'gi')
+        if (word.match(re).length === 1) arr.push(word.replace(re, '(')[m])
+        if (word.match(re).length > 1) arr.push(word.replace(re, ')')[m])
 
+    }
 
+    return arr.join('')
 
+}
 
+console.log(duplicateEncode('din'))
+console.log(duplicateEncode('recede'))
+console.log(duplicateEncode('Success'))
+console.log(duplicateEncode('@'))
 
+// let string = 'aaj';
+// let st = string[0]
+// console.log(st)
+// console.log(string[0])
+// console.log(string.match(/a/gi).length > 1);
+// console.log(string.replace(/a/gi, 't'));
+// console.log(string)
 
-
-
-
-
-
-
-
+// How to use template literals in regex for dynamic search pattern
+var variable = 'foooooooo';
+var expression = `${variable[1]}`;
+var re = new RegExp(expression, 'gi');
+console.log(re.test('fdjklsffoodjkslfd'))
+console.log(('fdjklsffoFFFodjkslfd').match(re))
+console.log(('fdjklsffoFFFodjkslfd').match(re).length)
+// console.log((('fdjklsffoFFFodjkslfd').match(re)).length)
+console.log(re.test('fdjklsfdjkslfd'))
 
 
 
