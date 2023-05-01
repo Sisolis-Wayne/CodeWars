@@ -386,17 +386,36 @@ Examples
 "din"      =>  "((("
 "recede"   =>  "()()()"
 "Success"  =>  ")())())"
-
+"(( @"     =>  "))(("
 */
+
+let strrr = 'me)('
+console.log(strrr.charCodeAt(2))
 
 const duplicateEncode = word => {
     let arr = []
     for (let m = 0; m < word.length; m++) {
         // console.log(word[m])
+        
+        if (word.charCodeAt(m) !== 40 && word.charCodeAt(m) !== 41) {
+            let re = new RegExp(`${word[m]}`, 'gi')
+            if (word.match(re).length === 1) arr.push(word.replace(re, '(')[m])
+            if (word.match(re).length > 1) arr.push(word.replace(re, ')')[m])
+        } else {
+            if (word[m] === '(') {
+                let re = new RegExp('\\(', 'gi')
+                // console.log(re)
+                if (word.match(re).length === 1) arr.push(word.replace(re, '(')[m])
+                if (word.match(re).length > 1) arr.push(word.replace(re, ')')[m])
+            }
+            if (word[m] === ')') {
+                let re = new RegExp('\\)', 'gi')
+                // console.log(re)
+                if (word.match(re).length === 1) arr.push(word.replace(re, '(')[m])
+                if (word.match(re).length > 1) arr.push(word.replace(re, ')')[m])
+            }
 
-        let re = new RegExp(`${word[m]}`, 'gi')
-        if (word.match(re).length === 1) arr.push(word.replace(re, '(')[m])
-        if (word.match(re).length > 1) arr.push(word.replace(re, ')')[m])
+        }
 
     }
 
@@ -407,7 +426,9 @@ const duplicateEncode = word => {
 console.log(duplicateEncode('din'))
 console.log(duplicateEncode('recede'))
 console.log(duplicateEncode('Success'))
-console.log(duplicateEncode('@'))
+console.log(duplicateEncode(' @'))
+console.log(duplicateEncode('(( @'))
+console.log(duplicateEncode('(() @'))
 
 // let string = 'aaj';
 // let st = string[0]
@@ -426,9 +447,53 @@ console.log(('fdjklsffoFFFodjkslfd').match(re))
 console.log(('fdjklsffoFFFodjkslfd').match(re).length)
 // console.log((('fdjklsffoFFFodjkslfd').match(re)).length)
 console.log(re.test('fdjklsfdjkslfd'))
+// end
+
+
+/*
+Complete the square sum function so that it squares each number passed into it and then sums the results together.
+
+For example, for [1, 2, 2] it should return 9
+*/
+
+// const squareSum = numbers => numbers.map((item) => item * item).reduce((acc, curr) => acc + curr, 0)
+const squareSum = numbers => numbers.reduce((acc, curr) => acc + (curr * curr), 0)
+
+console.log(squareSum([1, 2, 2]))
+
+
+////////////////////////////////////////////
+
+function bouncingBall(h, bounce, window) {
+    // Qualify the condition that must be met
+    const cond = h > 0 && (bounce > 0 && bounce < 1) && window < h;
+    // Check the condition
+    if (cond) {
+        // If condition is met, the ball will be seen once going up...
+        // And once coming down, as well as the first time its dropped
+        return h < window ? -1 : 2 + bouncingBall((h * bounce), bounce, window);
+    } else {
+        // If condition is not met, per instructions, return -1
+        return -1;
+    }
+}
 
 
 
+/*
+- h = 3, bounce = 0.66, window = 1.5, result is 3
+- h = 3, bounce = 1, window = 1.5, result is -1 
+- h = 30.0, bounce = 0.66, window = 1.5, result is 15
+*/
+
+console.log(bouncingBall((3 * 0.66), 0.66, 1.5))
+
+console.log(bouncingBall((30.0 * 0.66), 0.66, 1.5))
+
+console.log(bouncingBall(30.0, 0.66, 1.5))
+console.log(bouncingBall(30.0, 0.66, 1.5))
+console.log(bouncingBall(3, 0.66, 1.5))
+// console.log(bouncingBall(3, 0.66, 1.5))
 
 
 
