@@ -496,18 +496,70 @@ console.log(bouncingBall(3, 0.66, 1.5))
 // console.log(bouncingBall(3, 0.66, 1.5))
 
 
+//////////////
+
+/*
+In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+
+Examples
+highAndLow("1 2 3 4 5");  // return "5 1"
+highAndLow("1 2 -3 4 5"); // return "5 -3"
+highAndLow("1 9 3 4 -5"); // return "9 -5"
+Notes
+All numbers are valid Int32, no need to validate them.
+There will always be at least one number in the input string.
+Output string must be two numbers separated by a single space, and highest number is first.
+
+*/
+
+const highAndLow = numbers => {
+    console.log(numbers.split(' '))
+    let newArrNum = numbers.split(' ').map(Number)
+    console.log(newArrNum)
+    let maxNum = newArrNum[0]
+    let minNum = newArrNum[0]
+    let newArr = []
+    for (let j = 0; j < newArrNum.length; j++) {
+         if (newArrNum[j] > maxNum) maxNum = newArrNum[j]
+    }
+    for (let k = 0; k < newArrNum.length; k++) {
+         if (newArrNum[k] < minNum) minNum = newArrNum[k]
+    }
+    newArr.push(maxNum, minNum)
+    return newArr.join(' ')
+}
+
+
+console.log(highAndLow("1 2 3 4 5"))
+console.log(highAndLow("1 2 -3 4 5"))
+console.log(highAndLow("1 9 3 4 -5"))
 
 
 
+console.log(Math.min(1, 2, 3, 5, 6))
 
 
 
+let numbers = "1 2 3 4 5"
+let newNum = numbers.split(' ')
+console.log(numbers.split(' '))
+console.log(...numbers.split(' '))
 
+//////////////////////////////
+/*
+The main idea is to count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
 
+What if the string is empty? Then the result should be empty object literal, {}.
+*/
 
+const count = string => {
+    // return string
+    return string ? string.split('').reduce((acc, curr) => {!acc[curr] ? acc[curr] = 1 : acc[curr]++
+        return acc
+    }, {}) : {}
+}
 
-
-
-
-
+console.log(count('abaa'))
+console.log(count('abaca'))
+console.log(count(''))
 
