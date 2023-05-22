@@ -597,17 +597,28 @@ console.log(solution(''))
 // console.log(`${''}`)
 
 
-let strike = 'strike'
+let strike = 'saterikoeu'
+let newStrike = strike.replace(/[aeiou]/gi, 'o')
 console.log(strike[2])
-strike[2] = 'g'
-console.log(strike[2])
+console.log(newStrike)
 
 
 
+/*
+A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
 
+Your task is to write a function that takes a string and return a new string with all vowels removed.
 
+For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
 
+Note: for this kata y isn't considered a vowel.
+*/
 
+const disemvowel = str => {
+    return str.replace(/[aeiou]/gi, '')
+}
+
+console.log(disemvowel("This website is for losers LOL!"))
 
 
 
