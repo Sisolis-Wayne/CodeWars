@@ -575,22 +575,32 @@ Complete the solution so that the function will break up camel casing, using a s
 */
 
 const solution = string => {
-    for (let i = 0; i < string.length; i++) {
-        if (string[i] !== string[i].toUpperCase()) {
-            return string
-        }
-        if (string.length < 1) return ''
-
+    if (string) {
+        let arr = string.split('')
+        console.log(arr)
+        return arr.reduce((acc, curr) => {
+            if (curr !== curr.toUpperCase()) acc.push(curr)
+            if (curr === curr.toUpperCase()) acc.push(` ${curr}`)
+            return acc
+        }, []).join('')
+    } else {
+        return ''
     }
 }
 
-// console.log(solution(camelCasing))
-// console.log(solution(camelCasingTest))
+console.log(solution('camelCasing'))
+console.log(solution('camelCasingTest'))
 console.log(solution('identifier'))
 console.log(solution(''))
+// console.log({})
+// console.log([])
+// console.log(`${''}`)
 
 
-
+let strike = 'strike'
+console.log(strike[2])
+strike[2] = 'g'
+console.log(strike[2])
 
 
 
