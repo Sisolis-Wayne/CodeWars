@@ -563,3 +563,95 @@ console.log(count('abaa'))
 console.log(count('abaca'))
 console.log(count(''))
 
+///////////////////////////////////////////////////
+
+/*
+Complete the solution so that the function will break up camel casing, using a space between words.
+
+    Example
+"camelCasing"  => "camel Casing"
+"identifier"   => "identifier"
+""             => ""
+*/
+
+const solution = string => {
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] !== string[i].toUpperCase()) {
+            return string
+        }
+        if (string.length < 1) return ''
+
+    }
+}
+
+// console.log(solution(camelCasing))
+// console.log(solution(camelCasingTest))
+console.log(solution('identifier'))
+console.log(solution(''))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
