@@ -621,15 +621,70 @@ const disemvowel = str => {
 console.log(disemvowel("This website is for losers LOL!"))
 
 
+///////////////////////////////////
+
+const draw = (deck) => {
+	// printDeck(deck, true); // Using unicode characters
+	// printDeck(deck, false); // Using regular characters
+
+    const drawnCards = [];
+    const newDeck = deck.slice();
+    // console.log(newDeck.length)
+    while (newDeck.length >= 1) {
+        for (let m = 0; m < newDeck.length; m++) {
+            drawnCards.push(newDeck.splice(m, 1)[0])
+            // console.log(newDeck)
+            // console.log(drawnCards)
+        }
+    }
+
+	return drawnCards;
+};
+
+
+const deck = ["KC", "KH", "QC", "KS", "KD", "QH", "QD", "QS"];
+const deck1 = ['AC', '2C', '3C', '4C', '5C', '6C', '7C', '8C', '9C', 'TC', 'JC', 'QC', 'KC', 'AD', '2D', '3D', '4D', '5D', '6D', '7D', '8D', '9D', 'TD', 'JD', 'QD', 'KD', 'AH', '2H', '3H', '4H', '5H', '6H', '7H', '8H', '9H', 'TH', 'JH', 'QH', 'KH', 'AS', '2S', '3S', '4S', '5S', '6S', '7S', '8S', '9S', 'TS', 'JS', 'QS', 'KS'];
+// let newDeck = []
+
+// newDeck.push(deck.splice(0, 1)[0])
+// console.log(deck)
+// console.log(newDeck)
+// console.log(deck)
+// console.log(deck.splice(0,1))
+// console.log(deck)
+// deck.push(deck.splice(0, 1)[0])
+// const newDeck = deck.slice()
+// console.log(newDeck)
+
+// // console.log(deck.slice())
+// // console.log(deck)
+// console.log(newDeck.splice(6, 1))
+// console.log(newDeck)
+
+// console.log(deck.slice())
+// console.log(deck.slice().splice(0, 3))
+// console.log(deck)
+
+console.log(draw(deck))
+console.log(draw(deck1))
+
+/////////////////////////////// not from codewars
+const sumMulOf3Et5 = n => {
+    let sum = 0;
+    for (let m = 0; m < n; m++) {
+        if (m % 3 === 0 || m % 5 === 0) {
+            sum += m;
+        }
+    }
+    return sum;
+}
+
+console.log(sumMulOf3Et5(10))
+console.log((3 % 5) === 0)
 
 
 
-
-
-
-
-
-
+//////////////////////
 
 
 
