@@ -56,3 +56,152 @@ const spinWords = string => {
 
 console.log(spinWords("This is another test"))
 console.log(spinWords("Hey fellow warriors"))
+
+
+let strr = 'freecodecamp';
+console.log(strr.match(/e/))
+console.log(strr.match(/e/).groups)
+console.log(strr.match(/[cmr]/ig))
+
+
+
+const myObj = {
+    a: 1,
+    b: 2,
+    c: 3
+}
+
+console.log(myObj)
+
+for (const meet in myObj) {
+    console.log(meet)
+    if (myObj[meet] === 2) console.log(meet)
+}
+
+
+// const findOdd = (A) => {
+//     // return A
+//     return Number(Object.entries(A.reduce((acc, curr) => {
+//         !acc[curr] ? acc[curr] = 1 : acc[curr]++
+//         return acc
+//     }, {})).reduce((acc, curr) => {
+//         if ((curr[1] % 2) !== 0) acc.push(curr)
+//         return acc
+//     }, [])[0][0])
+// } correct
+
+const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+
+
+console.log(findOdd([0, 1, 0, 1, 0]))
+console.log(findOdd([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1]))
+console.log(findOdd([7]))
+console.log(findOdd([0]))
+console.log(findOdd([1, 1, 2]))
+
+///////////////////////////////////////// read on bitwise XOR
+console.log(2 ^ 0)
+
+/////////////////////
+let a = [121, 144, 19, 161, 19, 144, 19, 11] 
+let b = [121, 14641, 20736, 361, 25921, 361, 20736, 361]
+
+const comp = (array1, array2) => {
+    if (((array1 && array2) !== null)) {
+        array1.sort((a, b) => a - b)
+        array2.sort((a, b) => a - b)
+        for (let m = 0; m < array1.length; m++) {
+            if ((array1[m] ** 2) !== array2[m]) return false
+        }
+        return true
+    } else {
+        return false
+    }
+    
+}
+
+console.log(comp(a, b))
+console.log(comp([2, 2, 3], [4, 9, 9]))
+console.log(comp([2, 1, 3], [8, 1, 2]))
+console.log(comp([], []))
+console.log(comp([], null))
+
+
+// console.log(2 ** 2 === 9)
+
+///////////////////////////////////////// persistent bugger
+const persistence = (num) => {
+    let counter = 0
+    let arrayedNum = num.toString().split('').reduce((acc, curr) => {
+        acc.push(+curr)
+        return acc
+    }, [])
+
+    // console.log(arrayedNum)
+    // console.log(arrayedNum.length)
+
+    while (arrayedNum.length > 1) {
+        counter++
+        let mul = arrayedNum.reduce((acc, curr) => {
+            return acc * curr
+        }, 1).toString().split('').reduce((acc, curr) => {
+            acc.push(+curr)
+            return acc
+        }, [])
+
+        arrayedNum = mul
+    }
+
+    // return arrayedNum[0]
+    return counter
+    // console.log(num)
+}
+console.log(persistence(39))
+console.log(persistence(4))
+console.log(persistence(999))
+console.log(persistence(13))
+// console.log(persistence(12))
+
+// let mul = [1, 2, 3, 4, 5]
+// let mu = mul.reduce((acc, curr) => {
+//     return acc * curr
+// }, 1)
+
+// console.log(mu)
+
+//////////////////////////////////////////
+
+const createPhoneNumber = (numbers) => {
+    let arr = [];
+    for (i = 0; i < numbers.length; i++) {
+        // console.log(numbers[i])
+        if (i === 0) {
+            arr.push(`(${numbers[i]}`)
+            continue
+        }
+        if (i === 2) {
+            arr.push(`${numbers[i]}) `)
+            continue
+        }
+        if (i === 5) {
+            arr.push(`${numbers[i]}-`)
+            continue
+        }
+        arr.push(numbers[i])
+    }
+    return arr.join('')
+}
+
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+// "(123) 456-7890"
+
+
+
+// let m = '32'
+// console.log(Number(m))
+
+
+
+
+
+

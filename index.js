@@ -668,7 +668,7 @@ const deck1 = ['AC', '2C', '3C', '4C', '5C', '6C', '7C', '8C', '9C', 'TC', 'JC',
 console.log(draw(deck))
 console.log(draw(deck1))
 
-/////////////////////////////// not from codewars
+/////////////////////////////// not from codewars....actually, it's the other way round
 const sumMulOf3Et5 = n => {
     let sum = 0;
     for (let m = 0; m < n; m++) {
