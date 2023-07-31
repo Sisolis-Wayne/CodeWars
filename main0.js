@@ -200,8 +200,102 @@ console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
 // let m = '32'
 // console.log(Number(m))
 
+/////////////////////////////////////
+
+const twoSum = (numbers, target) => {
+    // ...
+    for (let i = 0; i < numbers.length; i++) {
+        for (let j = 0; j < numbers.length; j++) {
+            if ((numbers[i] + numbers[j] === target) && (i !== j)) {
+                return [i, j]
+            }
+        }
+    }
+}
+
+
+console.log(twoSum([1, 2, 3], 4))
+console.log(twoSum([1234, 5678, 9012], 14690))
+console.log(twoSum([2, 2, 3], 4))
+console.log(twoSum([2, 2, 3], 5))
+
+
+/////////////////////////////
+const addArrays = (array1, array2) => {
+    let newArr = [];
+    if (array1.length >= 1 || array2.length >= 1) {
+        if (array1.length === 0) {
+            array1.push(0)
+        }
+        if (array2.length === 0) {
+            array2.push(0)
+        }
+        
+        let arrayToNumber1 = parseInt(array1.join(''));
+        let arrayToNumber2 = parseInt(array2.join(''));
+        let n = (arrayToNumber1 + arrayToNumber2).toString().split('');
+
+        for (let i = 0; i < n.length; i++) {
+            if (n[i] === '-') {
+                let str = n[i] + n[i + 1]
+                newArr.push(+str)
+                continue
+            }
+            if (n[i - 1] === '-') {
+                continue
+            }
+            newArr.push(+(n[i]))
+        }
+        return newArr
+    } else {
+        return newArr
+    }
+}
+
+console.log(addArrays([-1], [1]))
+console.log(addArrays([], [-12]))
+// console.log(addArrays([3, 2, 9], [1, 2]))
+// console.log(addArrays([4,7,3],[1,2,3]))
+// console.log(addArrays([1],[5,7,6]))
+// console.log(addArrays([3, 2, 6, 6], [-7, 2, 2, 8]))
+// console.log(addArrays([6, 7], [6, 7]))
+// console.log(addArrays([6, 7], []))
+// console.log(addArrays([], []))
+
+let nnn = []
+console.log(nnn.length)
+nnn.push(0)
+console.log(nnn)
 
 
 
+const isSquare = n => (n < 0) ? false : Math.sqrt(n) === Math.ceil(Math.sqrt(n)) ? true : false
 
 
+console.log(Math.sqrt(4))
+console.log(Math.ceil(0))
+
+console.log(isSquare(0))
+console.log(isSquare(3))
+console.log(isSquare(25))
+console.log(isSquare(4))
+console.log(isSquare(-1))
+console.log(isSquare(37))
+console.log(isSquare(121))
+console.log(isSquare(49))
+
+////////////////////////////////////////////////
+
+const countSmileys = arr => {
+    let count = 0
+    let smileyArr = [':-)', ';-)', ':-D', ';-D', ':)', ';)', ':D', ';D', ':~)', ';~D', ':~D', '~D']
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[i] === smileyArr[j]) count++
+        }
+    }
+    return count
+}
+
+console.log(countSmileys([':)', ';(', ';}', ':-D']))
+console.log(countSmileys([';D', ':-(', ':-)', ';~)']))
