@@ -102,7 +102,7 @@ console.log(findOdd([1, 1, 2]))
 ///////////////////////////////////////// read on bitwise XOR
 console.log(2 ^ 0)
 
-/////////////////////
+//////////////////////////////////////////////////////////
 let a = [121, 144, 19, 161, 19, 144, 19, 11] 
 let b = [121, 14641, 20736, 361, 25921, 361, 20736, 361]
 
@@ -169,7 +169,7 @@ console.log(persistence(13))
 
 // console.log(mu)
 
-//////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 
 const createPhoneNumber = (numbers) => {
     let arr = [];
@@ -196,11 +196,7 @@ console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
 // "(123) 456-7890"
 
 
-
-// let m = '32'
-// console.log(Number(m))
-
-/////////////////////////////////////
+//////////////////////////////////////////////
 
 const twoSum = (numbers, target) => {
     // ...
@@ -220,7 +216,7 @@ console.log(twoSum([2, 2, 3], 4))
 console.log(twoSum([2, 2, 3], 5))
 
 
-/////////////////////////////
+//////////////////////////////////////////////
 const addArrays = (array1, array2) => {
     let newArr = [];
     if (array1.length >= 1 || array2.length >= 1) {
@@ -267,7 +263,7 @@ console.log(nnn.length)
 nnn.push(0)
 console.log(nnn)
 
-
+////////////////////////////////////////////
 
 const isSquare = n => (n < 0) ? false : Math.sqrt(n) === Math.ceil(Math.sqrt(n)) ? true : false
 
@@ -284,13 +280,13 @@ console.log(isSquare(37))
 console.log(isSquare(121))
 console.log(isSquare(49))
 
-////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
 
 const countSmileys = arr => {
     let count = 0
-    let smileyArr = [':-)', ';-)', ':-D', ';-D', ':)', ';)', ':D', ';D', ':~)', ';~D', ':~D', '~D']
+    let smileyArr = [':-)', ';-)', ':-D', ';-D', ':)', ';)', ':D', ';D', ':~)', ';~D', ':~D', ';~)']
     for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length; j++) {
+        for (let j = 0; j < smileyArr.length; j++) {
             if (arr[i] === smileyArr[j]) count++
         }
     }
@@ -299,3 +295,43 @@ const countSmileys = arr => {
 
 console.log(countSmileys([':)', ';(', ';}', ':-D']))
 console.log(countSmileys([';D', ':-(', ':-)', ';~)']))
+console.log(countSmileys([';]', ':[', ';*', ':$', ';-D']))
+
+//////////////////////////////////////////////////////////
+
+const expandedForm = num => {
+    let arr = num.toString().split('').reduce((acc, curr) => {
+        acc.push(+curr)
+        return acc;
+    }, [])
+
+    let newArr = [];
+    let nonZero = [];
+    let n = arr.length - 1;
+    
+    for (let i = 0; i < arr.length; i++) {
+        let pow = Math.pow(10, n)
+        newArr.push(arr[i] * pow)
+        n--;
+    }
+
+    for (let i = 0; i < newArr.length; i++) {
+        if (newArr[i] !== 0) nonZero.push(newArr[i])
+    }
+
+    let str = ''
+    for (m = 0; m < nonZero.length; m++) {
+        // if (nonZero[m] === 0) continue
+        if (m !== nonZero.length - 1) str += `${nonZero[m]} + `
+        else str += `${nonZero[m]}`
+    }
+    
+    return str
+
+}
+
+console.log(expandedForm([42]))
+console.log(expandedForm([420]))
+console.log(expandedForm([703004]))
+console.log(expandedForm([7004]))
+console.log(expandedForm([704]))
