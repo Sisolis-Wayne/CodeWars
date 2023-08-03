@@ -41,11 +41,12 @@ console.log(arrayDiff([1, 2, 2, 2, 3], [2]))
 
 console.log(arrayDiff([1, 2], [1]))
 
+
+/////////////////////////////////////////////////////
+
 let str = 'milk'
 console.log(str.split('').reverse().join(''))
 console.log(str.length)
-
-////////////////////////////////////////
 
 const spinWords = string => {
     return string.split(' ').reduce((acc, curr) => {
@@ -57,7 +58,7 @@ const spinWords = string => {
 console.log(spinWords("This is another test"))
 console.log(spinWords("Hey fellow warriors"))
 
-
+////////////////////////////////// continue your read on regex
 let strr = 'freecodecamp';
 console.log(strr.match(/e/))
 console.log(strr.match(/e/).groups)
@@ -71,12 +72,15 @@ const myObj = {
     c: 3
 }
 
+console.log(myObj['a'])
 console.log(myObj)
-
+let count = 0
 for (const meet in myObj) {
     console.log(meet)
-    if (myObj[meet] === 2) console.log(meet)
+    console.log(myObj[meet])
+    if (myObj[meet] > 1) count++
 }
+console.log(count)
 
 
 // const findOdd = (A) => {
@@ -335,3 +339,270 @@ console.log(expandedForm([420]))
 console.log(expandedForm([703004]))
 console.log(expandedForm([7004]))
 console.log(expandedForm([704]))
+console.log(expandedForm([7000000000004]))
+
+
+///////////////////////////////////////////////////////////
+
+
+function isPrime(num) {
+    for (let i = 2, s = Math.sqrt(num); i <= Math.floor(s); i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+    return num > 1;
+}
+
+console.log(isPrime(13))
+// console.log(isPrime(2))
+// console.log(isPrime(18))
+
+/////////////////////////////////////////////////////
+
+const oddNotPrime = n => {
+    let arr = []; // odd numbers array
+    let finalArr = []; // not prime numbers
+    for (let i = 0; i <= n; i++) {
+        if (i % 2 !== 0) arr.push(i)
+    }
+    console.log(arr)
+
+    function isPrime(num) {
+        for (let i = 2, s = Math.sqrt(num); i <= Math.floor(s); i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return num > 1; // true
+    }
+
+    console.log(isPrime(3))
+    console.log(Math.floor(Math.sqrt(5)))
+    console.log(5 % 2 === 0)
+    console.log(3 > 1)
+    console.log(arr)
+
+    for (let i = 0; i < arr.length; i++) {
+        if (!isPrime(arr[i])) finalArr.push(arr[i])
+    }
+    console.log(finalArr)
+    return finalArr.length
+}
+
+console.log(oddNotPrime(10)) // 1
+//console.log(oddNotPrime(99)) // 26
+//console.log(oddNotPrime(10)) // 2
+
+///////////////////////////////////////////////////////////
+
+function run() {
+    console.log(1)
+}
+
+run();
+
+[2, 3, 4, 5].forEach(element => {
+    console.log(element)
+    if (5 === "5") {
+        console.log("break")
+    }
+});
+
+///////////////////////////////// valid naming conventions in JS
+
+const $99 = 'milk';
+let _8_9 = '';
+// const ^thfi = tru;
+
+// var var = 90;
+// let class = 80;
+// let 76jb = 'icarus';
+let ksi_9 = true;
+let _rat = false;
+let _0_0_0 = true;
+let $55 = false;
+// const 9_9 = false;
+// const ^thfi = true;
+
+/////////////////////////////////////////////////////////////////
+
+// const findShort = (s) => {
+//     let splittedString = s.split(' ');
+
+//     let minStringLength = splittedString[0].length;
+//     for (let i = 1; i < splittedString.length; i++) {
+//         if (splittedString[i].length < minStringLength) {
+//             minStringLength = splittedString[i].length
+//         }
+//     }
+
+//     return minStringLength;
+// } correct
+
+const findShort = s => {
+    return Math.min(...s.split(" ").map(s => s.length));
+}
+
+console.log(findShort("bitcoin take over the world maybe who knows perhaps"))
+console.log(findShort("turns out random test cases are easier than writing out basic ones"))
+console.log(findShort("We are I"))
+
+console.log(Math.min(2, 4, 5))
+console.log(Math.min(...[7, 4, 5]))
+
+//////////////////////////////////////////////////////////////////
+
+
+const stringEndsWith = (str, ending) => str.endsWith(ending)
+
+console.log('string'.endsWith('ng'))
+console.log(stringEndsWith('abc', 'bc'))
+
+/////////////////////////////////////////////////////
+const isIsogram = (str) => {
+    let w = str.toLowerCase().split('')
+    let oo = w.reduce((acc, curr) => {
+        if (!acc[curr]) acc[curr] = 1;
+        else acc[curr]++
+        return acc;
+    }, {})
+
+    for (const p in oo) {
+        if (oo[p] === 2) return false
+    }
+    return true
+}
+
+console.log(isIsogram('moose'))
+console.log(isIsogram('Dermatoglyphics'))
+console.log(isIsogram('aba'))
+// console.log(isIsogram('moose'))
+
+
+let oo = { m: 1, o: 2, s: 1, e: 1 }
+for (const p in oo) {
+    console.log(oo[p])
+    // if (oo[p] === 2) return false
+    // return true
+}
+
+
+
+
+console.log((123).toString())
+console.log([1, 2, 2].toString())
+
+
+// Boolean.prototype.toString = Number.prototype.toString = Array.prototype.toString =
+//     function () { return JSON.stringify(this); } correct
+// String.prototype.toString = function () { return `${this}` }
+// String.prototype.toString = function () { return JSON.stringify(this) }
+
+
+let mmm = [1, 2, 2]
+let dkd = ['Hello World', 'Lorem Ipsum']
+let dk = [1, [2, 4]]
+let d = [true, false]
+let nn = JSON.stringify(dkd)
+console.log(nn)
+
+// String.prototype.toArray() = function () {return [this]}
+
+// console.log((123).toArray())
+
+console.log(["Hello World", 3.14, "Lorem Ipsum"].toString())
+
+Array.prototype.toString = function () { return JSON.stringify(this) }
+console.log([].toString())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
