@@ -494,8 +494,8 @@ console.log((123).toString())
 console.log([1, 2, 2].toString())
 
 
-// Boolean.prototype.toString = Number.prototype.toString = Array.prototype.toString =
-//     function () { return JSON.stringify(this); } correct
+Boolean.prototype.toString = Number.prototype.toString = Array.prototype.toString =
+    function () { return JSON.stringify(this); } // correct
 // String.prototype.toString = function () { return `${this}` }
 // String.prototype.toString = function () { return JSON.stringify(this) }
 
@@ -511,13 +511,18 @@ console.log(nn)
 
 // console.log((123).toArray())
 
-console.log(["Hello World", 3.14, "Lorem Ipsum"].toString())
+// console.log(["Hello World", 3.14, "Lorem Ipsum"].toString())
 
-Array.prototype.toString = function () { return JSON.stringify(this) }
-console.log([].toString())
+// Array.prototype.toString = function () {
+//     // console.log(JSON.stringify(this))
+//     console.log(this)
+// }
+// console.log([].toString())
 
 
-
+console.log(p)
+let p = 90
+console.log(p)
 
 
 
