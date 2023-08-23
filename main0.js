@@ -521,7 +521,7 @@ console.log(nn)
 
 
 console.log(p)
-let p = 90
+var p = 90
 console.log(p)
 
 

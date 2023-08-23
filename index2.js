@@ -17,7 +17,7 @@ const duplicateEncode = word => {
 
 
 
-
+// solved in index.js
 console.log(duplicateEncode('Success'))
 // console.log(duplicateEncode('(@'))
 
